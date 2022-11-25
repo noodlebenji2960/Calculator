@@ -29,6 +29,7 @@
     align-items: center;
     margin: 10px;
     cursor: pointer;
+    user-select: none;
 }
 
 #historyContainer {
@@ -65,13 +66,8 @@
     font-family: Digital7;
     border: 1px solid gray;
     word-break: break-all;
+    user-select: none;
     }
-
-#display p{
-    width: 100%;
-    height: 100%;
-    animation: scroll-left 20s linear infinite;
-}
 
 #display2{
     width: auto;
@@ -86,6 +82,7 @@
     font-family: Digital7;
     overflow: hidden;
     border: 1px solid gray;
+    user-select: none;
     }
 
 #display2:hover{
@@ -147,7 +144,7 @@
     outline: 2px solid darkgray;
 }
 
-.button2:active{
+.button2:active, #btnClearHistory:active{
     outline: 0px;
     background: darkgray;
 }

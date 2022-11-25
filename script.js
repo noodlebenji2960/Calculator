@@ -290,9 +290,11 @@ function btnDivideF(){
 let btnDot = document.getElementById(".")
 btnDot.addEventListener("click", btnDotF)
 function btnDotF(){
+    if(!display.textContent.includes(".")){
     displayValue = ".";
     display.textContent += ".";
     numberButton();
+    }
 
 }
 
