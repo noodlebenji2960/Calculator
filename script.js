@@ -361,6 +361,7 @@ btnClearHistory.addEventListener("click", clearHistory)
 
 function historyUpdate(){
      historyIndex++
+
      console.log(historyIndex)
      let cell1 = document.createElement("div");
      historyGridContainer.appendChild(cell1).id = "historyInput" + historyIndex
@@ -372,7 +373,8 @@ function historyUpdate(){
      margin: 1px;
      padding: 5px;
      `;
-     document.getElementById("historyInput" + historyIndex).innerText = display2.innerText + "\n";
+     document.getElementById("historyInput" + historyIndex).innerText = display2.innerText + " =" + "\n";
+
      let cell2 = document.createElement("div");
      historyGridContainer.appendChild(cell2).id = "historyOutput" + historyIndex
      document.getElementById("historyOutput" + historyIndex).style.cssText =  `
@@ -383,8 +385,9 @@ function historyUpdate(){
      padding: 5px;
      text-align: left;
      `;
-     document.getElementById("historyOutput" + historyIndex).innerText = "=" + display.innerText + "\n";
-} 
+     document.getElementById("historyOutput" + historyIndex).innerText = display.innerText + "\n";
+}
+
 function clearHistory(){
     historyGridContainer.replaceChildren()
     btnACF()
