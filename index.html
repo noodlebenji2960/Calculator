@@ -17,7 +17,11 @@
             <div ID ="buttons">
                 <div class="button1" id="AC">AC</div>
                 <div class="button1" id="C">C</div>
-                <div class="button1" id="M"></div>
+                <div class="button1" id="btnRandomNumber">
+                    <svg class="shuffle" version="1.1" height="50px" width="50px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+                        <g><g transform="translate(0.000000,370.000000) scale(0.100000,-0.100000)"><path d="M8654.8,2239.4c-95.2-99.1-75.3-132.9,323.2-529.4c202.3-202.3,366.8-372.8,366.8-380.7c0-9.9-428.3-15.9-949.8-15.9c-573,0-1011.2-7.9-1104.4-21.8c-551.2-75.3-1108.4-410.4-1421.7-854.6c-47.6-69.4-499.7-811-1005.3-1651.7c-503.6-840.7-943.8-1566.5-977.5-1616c-162.6-236-416.4-446.1-709.9-583c-351-164.6-285.5-156.6-1717.2-170.5c-1241.3-9.9-1275-11.9-1312.6-49.6c-61.5-63.5-61.5-168.6-2-228c39.7-39.7,65.4-39.7,1257.1-39.7c1334.5,0,1407.8,6,1719.1,119c408.5,148.7,755.5,404.5,997.4,733.7c51.6,69.4,511.6,824.9,1023.1,1677.5c511.6,850.7,971.6,1602.2,1021.2,1669.6c243.9,325.2,646.4,573.1,1070.7,660.3c158.6,33.7,279.6,37.7,1146.1,37.7c531.4,0,965.7-5.9,965.7-13.9c0-7.9-164.6-176.5-366.8-372.8c-321.2-313.3-366.8-364.8-366.8-418.4c0-95.2,67.4-166.6,154.7-166.6c69.4,0,101.1,27.8,604.8,531.4c491.7,491.8,529.4,535.4,529.4,598.8c0,65.4-37.7,109.1-531.4,600.8c-495.7,495.7-533.4,529.4-600.8,529.4C8720.2,2285,8684.5,2271.1,8654.8,2239.4z"/><path d="M156.3,1271.7c-73.4-57.5-73.4-176.5,0-234c51.6-41.6,69.4-41.6,1227.4-41.6c961.7,0,1205.6-5.9,1348.3-29.7C3152.4,893,3564.8,649.1,3820.6,322c55.5-73.4,239.9-360.9,408.5-640.5l305.4-507.6l95.2,53.5c200.3,113,214.1,47.6-130.9,622.6c-360.9,598.8-410.5,670.2-624.6,874.4c-319.2,303.4-676.2,481.8-1120.3,559.2c-144.8,23.8-388.6,29.7-1360.2,29.7C225.7,1313.4,207.8,1313.4,156.3,1271.7z"/><path d="M5329.5-1851.2c-65.4-39.7-120.9-73.4-124.9-77.3c-7.9-5.9,553.2-941.9,634.5-1060.8c319.2-460,830.8-787.2,1382.1-882.4c130.9-23.8,372.8-29.7,1144.1-29.7c539.3,0,979.5-5.9,979.5-13.9c0-7.9-164.6-180.4-366.8-382.7c-321.2-325.2-366.8-376.7-366.8-432.3c0-117,126.9-190.4,230-136.8c31.7,17.9,283.6,257.8,557.2,533.4c487.8,489.8,501.7,505.6,501.7,582.9c0,75.4-13.9,91.2-531.4,608.7c-477.9,475.9-537.4,529.4-594.9,529.4c-87.3,0-162.6-75.4-162.6-160.6c0-57.5,43.6-109.1,372.8-438.2l370.8-374.7l-1041,7.9c-1171.9,6-1140.1,4-1481.2,162.6c-214.1,101.1-321.2,170.5-481.8,319.2c-158.6,148.7-218.1,232-567.1,809c-164.6,273.6-307.3,497.7-317.3,501.7C5456.4-1783.8,5395-1813.6,5329.5-1851.2z"/></g></g>
+                        </svg>
+                </div>
                 <div class="button1" id="+/-">+/-</div>
                 <div class="button2" id="7">7</div>
                 <div class="button2" id="8">8</div>
@@ -42,5 +46,18 @@
             <div id = "historyGridContainer"></div>
         </div> 
     </div>
+    <div id="colorPickers">
+        <input type="color" id="colorPicker1" class="colorPicker" value="#03045E" title="Calculator Color">
+        <input type="color" id="colorPicker2" class="colorPicker" value="#023E8A" title="Display Color">
+        <input type="color" id="colorPicker3" class="colorPicker" value="#0077B6" title="Button Type 1 Color">
+        <input type="color" id="colorPicker4" class="colorPicker" value="#0096C7" title="Button Type 1 Active Color">
+        <input type="color" id="colorPicker5" class="colorPicker" value="#00B4D8" title=" Button Type 2 Color">
+        <input type="color" id="colorPicker6" class="colorPicker" value="#48CAE4" title="Button Type 2 Active Color">
+        <input type="color" id="colorPicker7" class="colorPicker" value="#90E0EF" title="Border Color">
+        <input type="color" id="colorPicker8" class="colorPicker" value="#CAF0F8" title="Font Color">
+        <input type="color" id="colorPicker9" class="colorPicker" value="#FFFFFF" title="Button Hover Color">
+    </div>
 </body>
 </html>
+
+<!--<input type="text" id="colorCode">-->

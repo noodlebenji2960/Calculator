@@ -5,6 +5,47 @@ let n2 = ""
 let operator = ""
 let displayValue = "" 
 
+/////////////////////////////// add text box to generate templates and also to apply them
+
+let colorPickers = document.getElementById("colorPickers");
+colorPickers.addEventListener("input", colorSchemer);
+colorPickers.addEventListener("mouseover", showColorpickers)
+colorPickers.addEventListener("mouseout", autoHide)
+
+function showColorpickers(){
+    colorPickers.style.opacity = "1.0"
+}
+
+function autoHide(){
+    setTimeout(hideColorpickers, 5000);
+}
+
+function hideColorpickers(){
+    colorPickers.style.opacity = 0.0
+}
+
+colorSchemer()
+function colorSchemer(){
+let color1 = document.querySelector("#colorPicker1").value;
+let color2 = document.querySelector("#colorPicker2").value;
+let color3 = document.querySelector("#colorPicker3").value;
+let color4 = document.querySelector("#colorPicker4").value;
+let color5 = document.querySelector("#colorPicker5").value;
+let color6 = document.querySelector("#colorPicker6").value;
+let color7 = document.querySelector("#colorPicker7").value;
+let color8 = document.querySelector("#colorPicker8").value;
+let color9 = document.querySelector("#colorPicker9").value;
+document.documentElement.style.setProperty('--color1', color1);
+document.documentElement.style.setProperty('--color2', color2);
+document.documentElement.style.setProperty('--color3', color3);
+document.documentElement.style.setProperty('--color4', color4);
+document.documentElement.style.setProperty('--color5', color5);
+document.documentElement.style.setProperty('--color6', color6);
+document.documentElement.style.setProperty('--color7', color7);
+document.documentElement.style.setProperty('--color8', color8);
+document.documentElement.style.setProperty('--color9', color9);
+}
+
 ///////////////////////////////
 
 let display2 = document.getElementById("display2")
@@ -87,14 +128,14 @@ let animation = setInterval(() => {
     let currentItem = (keyframesArray[index++ % keyframesArray.length]);
     display.textContent = currentItem.ASCII}, 500);
 
-buttons.addEventListener("click", clearAnimation)
+buttons.addEventListener("mouseover", clearAnimation)
 document.addEventListener("keypress", clearAnimation)
 document.addEventListener("keydown", clearAnimation)
 
 function clearAnimation(){
     btnACF()
     clearInterval(animation)
-    buttons.removeEventListener("click",clearAnimation)
+    buttons.removeEventListener("mouseover",clearAnimation)
     document.removeEventListener("keypress", clearAnimation)
     document.removeEventListener("keydown", clearAnimation)
 }
@@ -133,7 +174,7 @@ function operatorButton(){
 }
 
 function truncated(num) {
-    return Math.trunc(num * 100000000) / 100000000;
+    return Math.trunc(num * 1000000) / 1000000;
 }
 
 function checkDisplayStringLength(){
@@ -147,7 +188,8 @@ let length = display.innerText.length
         display.innerText = "MAX"
     }
 }
-/////////////////////////// need to make one function to rule them all (numbers), for less code, M function, C backspace function 
+/////////////////////////// need to make one function to rule all numbers = less code,  C backspace function 
+
 let btn0 = document.getElementById("0")
 btn0.addEventListener("click", btn0F)
 function btn0F(){
@@ -252,45 +294,60 @@ function btnACF(){
 let btnAdd = document.getElementById("+")
 btnAdd.addEventListener("click", btnAddF)
 function btnAddF(){
+    if(!display.textContent.slice(-1).includes("+")){
     operatorButton()
     operator = "+";
     display.textContent += operator;
-
+    }
 }
 
 let btnSubtract = document.getElementById("-")
 btnSubtract.addEventListener("click", btnSubtractF)
 function btnSubtractF(){
+    if(!display.textContent.slice(-1).includes("-")){
     operatorButton()
     operator = "-";
     display.textContent += operator;
-
+    }
 }
 
 let btnMultiply = document.getElementById("X")
 btnMultiply.addEventListener("click", btnMultiplyF)
 function btnMultiplyF(){
+    if(!display.textContent.slice(-1).includes("X")){
     operatorButton()
     operator = "*";
     display.textContent += operator;
+    }
 
 }
 
 let btnDivide = document.getElementById("/")
 btnDivide.addEventListener("click", btnDivideF)
 function btnDivideF(){
+    if(!display.textContent.slice(-1).includes("/")){
     operatorButton()    
     operator = "/";
     display.textContent += operator;
-
+    }
 }
 
-// NEED TO DISABLE operator and decimal BUTTON IF DECIMAL or operator ALREADY EXISTS
+let btnRandom = document.getElementById("btnRandomNumber")
+btnRandom.addEventListener("click", btnRandomNumberF)
+function btnRandomNumberF(){
+    let min = parseInt(prompt("What is the minimum value of your random number?"))
+    let max = parseInt(prompt("What is the maximum value of your random number?"))
+    let randomNumber1 = (Math.trunc(Math.random() * (max - min) + min));
+    displayValue = ("" + randomNumber1)
+    display.textContent += ("" + randomNumber1)
+    numberButton()
+}
+
 
 let btnDot = document.getElementById(".")
 btnDot.addEventListener("click", btnDotF)
 function btnDotF(){
-    if(!display.textContent.includes(".")){
+    if(!display.textContent.slice(-1).includes(".")){
     displayValue = ".";
     display.textContent += ".";
     numberButton();
@@ -343,7 +400,7 @@ function operate(){
     } else {
         display2.innerText = display.innerText
    }
-   answer = truncated(answer)
+   answer = truncated(answer, 8)
    display2.innerText =  display.innerText
    n1 = "" + answer
    n2 = ""
@@ -364,7 +421,38 @@ btnClearHistory.addEventListener("click", clearHistory)
 function historyUpdate(){
      historyIndex++
 
-     console.log(historyIndex)
+    let currentDate = new Date(); 
+    let datetime =  + currentDate.getDate() + "/"
+                    + (currentDate.getMonth()+1)  + "/" 
+                    + currentDate.getFullYear() + " @ "  
+                    + currentDate.getHours() + ":"  
+                    + currentDate.getMinutes() + ":" 
+                    + currentDate.getSeconds();
+
+     let cell = document.createElement("div");
+     historyGridContainer.appendChild(cell).id = "index" + historyIndex
+     document.getElementById("index" + historyIndex).style.cssText =  `
+     width: 100px;
+     height: 15px;
+     border-radius: 5px;
+     margin: 0px;
+     padding: 0px;
+     color: darkgray;
+     `;
+     document.getElementById("index" + historyIndex).innerText = "index no: " + historyIndex
+
+     let cell0 = document.createElement("div");
+     historyGridContainer.appendChild(cell0).id = Date()
+     document.getElementById( Date()).style.cssText =  `
+     width: 270px;
+     height: 15px;
+     border-radius: 5px;
+     margin: 0px;
+     padding: 0px;
+     color: darkgray;
+     `;
+     document.getElementById(Date()).innerText = datetime;
+
      let cell1 = document.createElement("div");
      historyGridContainer.appendChild(cell1).id = "historyInput" + historyIndex
      document.getElementById("historyInput" + historyIndex).style.cssText =  `
@@ -394,7 +482,6 @@ function clearHistory(){
     historyGridContainer.replaceChildren()
     btnACF()
 }
-
 
 /// development console log
 
